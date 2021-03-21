@@ -33,7 +33,8 @@ function App() {
               <Nav.Link href="/destination">Destination</Nav.Link>
               <Nav.Link href="#">Blog</Nav.Link>
               <Nav.Link href="#">Contact</Nav.Link>
-              {loggedInUser ? <p className="mt-2">{loggedInUser.name}</p> : <a role="button" className="btn btn-success" href="/login">Login</a>}
+              <a role="button" className="btn btn-success" href="/login">Login</a>
+              {loggedInUser && <p className="mt-2">{loggedInUser.name}</p>}
             </Nav>          
         </Navbar>
 
