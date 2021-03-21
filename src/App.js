@@ -15,6 +15,7 @@ import {
 import { Nav, Navbar } from 'react-bootstrap';
 import Destination from './components/Destination/Destination';
 import PrivateRoute from './components/ProvateRoute/PrivateRoute';
+import NoMatch from './components/NoMatch/NoMatch';
 
 export const UserContext = createContext();
 export const UserInfoContext = createContext();
@@ -28,13 +29,13 @@ function App() {
       <div className="container">
         <Navbar>
           <Navbar.Brand className="mr-auto" href="/home">Fast Movers</Navbar.Brand>
+          {loggedInUser && <p className="mt-3">{loggedInUser.name} </p>}
             <Nav>
               <Nav.Link href="/home">Home</Nav.Link>
               <Nav.Link href="/destination">Destination</Nav.Link>
               <Nav.Link href="#">Blog</Nav.Link>
               <Nav.Link href="#">Contact</Nav.Link>
               <a role="button" className="btn btn-success" href="/login">Login</a>
-              {loggedInUser && <p className="mt-2">{loggedInUser.name}</p>}
             </Nav>          
         </Navbar>
 
@@ -47,11 +48,17 @@ function App() {
               <PrivateRoute path="/destination/:id">
                 <Destination />
               </PrivateRoute>
+              <PrivateRoute path="/destination">
+                <Destination />
+              </PrivateRoute>
               <Route path="/login">
                 <Login />
               </Route>
               <Route exact path="/">
                 <Home />
+              </Route>
+              <Route path = "*">
+                <NoMatch />
               </Route>
             </Switch>
         </Router>
