@@ -1,0 +1,14 @@
+.background-image{
+    background-image: url(../../bg.png);
+    background-size: contain;
+    height: 789px;
+    width: 100%;
+}
+
+.card-position{
+    margin-top: 200px;
+}
+
+.card-style{
+    border-radius: 10px;
+}
