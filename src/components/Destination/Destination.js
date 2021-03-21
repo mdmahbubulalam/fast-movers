@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import transportData from '../../data/data.json';
+import Map from '../Map/Map';
 import './Destination.css';
+
 
 
 const Destination = () => {
@@ -16,10 +18,10 @@ const Destination = () => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-md-3 bg-light rounded p-2">
+                <div className="col-md-3">
                     {  
                         !searchResult ?
-                        <div className=" destination-info">
+                        <div className="destination-info bg-light p-2 rounded">
                             <h5>Pick From</h5>
                             <p className="bg-secondary rounded p-1 text-white">Mirpur 1</p>
                             <h5>Pick To</h5>
@@ -27,7 +29,7 @@ const Destination = () => {
                             <button className="btn btn-info btn-block" onClick={() => setSearchResult(true)}>Search</button>
                         </div>
                             :
-                        <div className="transport-info">
+                        <div className="transport-info bg-light p-2 rounded">
                             <h5 className="bg-success p-2 mt-2 rounded">Mirpur 1 <br/> to <br/> Dhanmondi</h5>
                             <span><img src={transport?.image} className="imag-fluid transport-image m-3 pr-2" alt=""/></span>
                             <span className="pr-4">{transport?.name}</span>
@@ -38,7 +40,7 @@ const Destination = () => {
                     
                 </div>
                 <div className="col-md-9">
-
+                    <Map></Map>
                 </div>
             </div>
             
