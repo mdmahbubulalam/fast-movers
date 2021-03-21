@@ -122,10 +122,6 @@ const Login = () => {
                     <Form.Group controlId="formBasicPassword">
                         <Form.Control type="password" name="password" onBlur={handleBlur} placeholder="Enter your password" required />
                     </Form.Group>
-                    {/* <Form.Group controlId="formBasicConfirmPassword">
-                        <Form.Control type="password" name="confirmPassword" onBlur={handleBlur} placeholder="Enter your confirm password" />
-                    </Form.Group> */}
-                    
                     <Button variant="primary" block type="submit">
                         {newUser ? 'Sign Up' : 'Login'}
                     </Button>
