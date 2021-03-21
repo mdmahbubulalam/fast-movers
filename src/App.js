@@ -17,6 +17,7 @@ import Destination from './components/Destination/Destination';
 import PrivateRoute from './components/ProvateRoute/PrivateRoute';
 
 export const UserContext = createContext();
+export const UserInfoContext = createContext();
 
 
 function App() {
@@ -25,15 +26,14 @@ function App() {
   return (
     <div className="background-image">
       <div className="container">
-        <p>name : {loggedInUser.name}</p>
         <Navbar>
           <Navbar.Brand className="mr-auto" href="/home">Fast Movers</Navbar.Brand>
             <Nav>
               <Nav.Link href="/home">Home</Nav.Link>
               <Nav.Link href="/destination">Destination</Nav.Link>
-              <Nav.Link href="#pricing">Blog</Nav.Link>
-              <Nav.Link href="/login">Contact</Nav.Link>
-              <a role="button" className="btn btn-success" href="/login">Login</a>
+              <Nav.Link href="#">Blog</Nav.Link>
+              <Nav.Link href="#">Contact</Nav.Link>
+              {loggedInUser ? <p className="mt-2">{loggedInUser.name}</p> : <a role="button" className="btn btn-success" href="/login">Login</a>}
             </Nav>          
         </Navbar>
 
